@@ -106,7 +106,7 @@ Node<T>* Node<T>::SearchBT(Node* root, T key)
 template <typename T>
 void Node<T>::quickSortBT(Node* root)
 {
-	if (root != NULL; && root != root->right && root != root->left)
+	if (root != NULL && root != root->right && root != root->left)
 	{
 		Node* part = partitionBT(root);
 		quickSortBT(part->left);
@@ -130,7 +130,7 @@ void Node<T>::heapify(Node* root, T value)
 	if (largest->data != value)
 	{
 		dataSwap(root, largest);//should swap root->data with the largest as value will be the initial root->data
-		heapify(largest, largest->data)//This demonstrates above point
+		heapify(largest, largest->data);//This demonstrates above point
 	}
 }
 

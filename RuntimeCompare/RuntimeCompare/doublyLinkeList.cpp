@@ -80,11 +80,11 @@ void DLList<D>::quickSortCaller(DLList* headRef)
 template <typename D>
 void DLList<D>::mergeSort(DLList* headRef)
 {
-	if (!headRef || !head->right)
+	if (!headRef || !headRef->right)
 	{
 		return headRef;
 	}
-	DLList* second = spliter(head);
+	DLList* second = spliter(headRef);
 	headRef = mergeSort(headRef);
 	second = mergeSort(second);
 	return merger(headRef, second);
