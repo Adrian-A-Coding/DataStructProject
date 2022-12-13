@@ -2,11 +2,13 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <chrono>
 #include "SLList.h"
 #include "doublyLinkedList.h"
 #include "binaryTree.h"
 
 using namespace std;
+using namespace std::chrono;
 
 int main()
 {
@@ -28,11 +30,24 @@ int main()
 	}
 
 	//Create the h file of each data strucutre to be template classes
-	//This is the small data set done for the linked list
+	//This is the small data set done for the linked list, can be swapped with the others for testing purposes
+	//For current intents and purposes this will demonstrate the single linked list
 	LList<string> Alist;
 	Alist.vectorList(smallOutputs);
-	//Call the funcs for Alist and calculate the duration between the calls. Use bubble sort for this one
-	//This is the linked list large data set
-	LList<string> ABigList;
-	ABigList.vectorList(largeOutputs);
+	auto startNodeRemoval = high_resolution_clock::now();
+	Alist.nodeRemoval(Alist.headNode, "A HEALTH QUEST");
+	auto stopNodeRemoval = high_resolution_clock::now();
+	auto nodeRemovalDuraton = duration_cast<microseconds>(stopNodeRemoval - startNodeRemoval);
+	cout << "The node removal process took " << nodeRemovalDuraton << " microseconds." << endl;
+	auto startNodeSearch = high_resolution_clock::now();
+	Alist.nodeSearch(Alist.headNode, "THREE MOONS");
+	auto stopNodeSearch = high_resolution_clock::now();
+	auto nodeSearchDuration = duration_cast<microseconds>(stopNodeSearch - startNodeSearch);
+	cout << "The process to search for a node took " << nodeSearchDuration << " microseconds." << endl;
+	auto startSort1 = high_resolution_clock::now();
+	Alist.quickSortLL(Alist.headNode, Alist.tailNode(Alist.headNode));
+	auto stopSort1 = high_resolution_clock::now();
+	auto sort1Duration = duration_cast<microseconds>(stopSort1 - startSort1);
+	cout << "The process to sort the list using quick sort took " << sort1Duration << " microseconds." << endl;
+	//These can be swapped for a larger dataset and for a doubly linke list and binary tree as needed.
 }

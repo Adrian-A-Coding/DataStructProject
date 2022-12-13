@@ -127,10 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="binaryTree.cpp" />
-    <ClCompile Include="doublyLinkeList.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SLList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryTree.h" />
